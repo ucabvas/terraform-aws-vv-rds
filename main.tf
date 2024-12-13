@@ -49,5 +49,4 @@ resource "aws_db_instance" "retool_postgres" {
   skip_final_snapshot  = true
   db_subnet_group_name = aws_db_subnet_group.retool_postgres_subnet_group.name
   vpc_security_group_ids = [aws_security_group.retool_postgres_sg.id]
-  multi_az             = false
 }

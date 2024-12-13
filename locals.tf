@@ -1,10 +1,14 @@
 locals {
   parameter_group_name   = "${local.identifier}-param-group"
-  subnet_ids             = [var.vv_rds_subnet_id]
+  subnet_ids             = [var.vv_rds_subnet_id_0, var.vv_rds_subnet_id_1]
   identifier             = "rds-retool-${var.vv_rds_db_identifier}"
-  subnet_cidr_blocks     = [data.aws_subnet.selected.cidr_block]
+  subnet_cidr_blocks     = [data.aws_subnet.subnet_0.cidr_block, data.aws_subnet.subnet_1.cidr_block]
 }
 
-data "aws_subnet" "selected" {
-  id = var.vv_rds_subnet_id
+data "aws_subnet" "subnet_0" {
+  id = var.vv_rds_subnet_id_0
+}
+
+data "aws_subnet" "subnet_1" {
+  id = var.vv_rds_subnet_id_1
 }

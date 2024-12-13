@@ -9,8 +9,13 @@ variable "vv_rds_vpc_id" {
     type        = string
 }
 
-variable "vv_rds_subnet_id" {
-    description = "The VPC subnet ID"
+variable "vv_rds_subnet_id_0" {
+    description = "The first subnet ID where the RDS instance will be deployed"
+    type        = string
+}
+
+variable "vv_rds_subnet_id_1" {
+    description = "The second subnet ID where the RDS instance will be deployed"
     type        = string
 }
 
