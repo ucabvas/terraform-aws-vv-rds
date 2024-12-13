@@ -32,15 +32,15 @@ resource "aws_db_subnet_group" "retool_postgres_subnet_group" {
 }
 
 resource "aws_db_parameter_group" "postgres_parameter_group" {
-  family = "postgres13"
-  name   = "default"
+  family = "postgres16"
+  name   = local.parameter_group_name
 }
 
 # Create the RDS instance
 resource "aws_db_instance" "retool_postgres" {
   allocated_storage    = 20
   engine               = "postgres"
-  engine_version       = "13.3"
+  engine_version       = "16.4"
   instance_class       = "db.t3.micro"
   db_name              = "${var.vv_rds_db_name}"
   username             = "${var.vv_rds_username}"
