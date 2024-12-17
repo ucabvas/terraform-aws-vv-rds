@@ -1,0 +1,16 @@
+manifest-version: "1.0"
+product-group: corp.palantir
+product-name: terraform-aws-vv-rds-helm
+product-version: 0.0.15
+product-type: helm-chart.v1
+extensions:
+  helm-chart:
+    helm-chart-name: terraform-aws-vv-rds-helm
+    helm-chart-version: 0.0.15
+    helm-repository-url: https://ucabvas.github.io
+  product-dependencies:
+   - product-group: corp.hashicorp
+     product-name: hcp-terraform-operator
+     minimum-version: 2.7.1
+     maximum-version: 2.x.x
+     optional: false

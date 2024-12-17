@@ -1,0 +1,21 @@
+apiVersion: app.terraform.io/v1alpha2
+kind: Module
+metadata:
+  name: retool-postgres
+spec:
+  organization: {{ .Values.tfc.organization }}
+  token:
+    secretKeyRef:
+      name: hcp-terraform-operator-tfc-operator
+      key: token
+  destroyOnDeletion: true
+  module:
+    source:  "app.terraform.io/testorgvv/vv-rds/aws"
+    version: "0.0.7"
+  variables:
+    - name: vv_rds_vpc_id
+    - name: vv_rds_subnet_id_0
+    - name: vv_rds_subnet_id_1
+    - name: vv_rds_password
+  workspace:
+    name: retool-postgres-workspace

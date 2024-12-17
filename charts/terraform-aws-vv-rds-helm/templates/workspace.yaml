@@ -1,0 +1,41 @@
+apiVersion: app.terraform.io/v1alpha2
+kind: Workspace
+metadata:
+  name: retool-postgres-workspace
+spec:
+  organization: {{ .Values.tfc.organization }}
+  project:
+    name: {{ .Values.tfc.project }}
+  token:
+    secretKeyRef:
+      name: hcp-terraform-operator-tfc-operator
+      key: token
+  name: retool-postgres-workspace
+  description: Kubernetes Operator Automated Workspace
+  applyMethod: auto
+  terraformVersion: 1.6.3
+  terraformVariables:
+    - name: vv_rds_vpc_id
+      value: {{ .Values.workspace.terraformVariables.vv_rds_vpc_id }}
+    - name: vv_rds_subnet_id_0
+      value: {{ .Values.workspace.terraformVariables.vv_rds_subnet_id_0 }}
+    - name: vv_rds_subnet_id_1
+      value: {{ .Values.workspace.terraformVariables.vv_rds_subnet_id_1 }}
+    - name: vv_rds_password
+      value: {{ .Values.workspace.terraformVariables.vv_rds_password }} 
+  environmentVariables:
+    - name: AWS_DEFAULT_REGION
+      sensitive: false
+      value: {{ .Values.workspace.environmentVariables.aws_default_region }} 
+    - name: CONFIRM_DESTROY
+      sensitive: false
+      value: "1"
+    - name: TFC_AWS_PROVIDER_AUTH
+      value: "true"
+      description: "Enable the Workload Identity integration for AWS."
+    - name: TFC_AWS_RUN_ROLE_ARN
+      value: {{ .Values.workspace.environmentVariables.tfc_aws_run_role_arn }}
+  tags:
+    - demo
+  executionMode: remote
+  

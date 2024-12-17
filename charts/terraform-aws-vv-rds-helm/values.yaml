@@ -1,0 +1,21 @@
+# Default values for terraform-aws-vv-rds-helm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# This is to override the chart name.
+nameOverride: ""
+fullnameOverride: ""
+
+tfc:
+  organization: ""
+  project: ""
+
+workspace:
+  terraformVariables:
+    vv_rds_vpc_id: ""
+    vv_rds_subnet_id_0: ""
+    vv_rds_subnet_id_1: ""
+    vv_rds_password: ""
+  environmentVariables:
+    aws_default_region: ""
+    tfc_aws_run_role_arn: ""
