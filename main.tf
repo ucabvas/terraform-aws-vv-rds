@@ -1,10 +1,9 @@
 resource "aws_route53_zone" "retool_postgres_private_zone" {
   name = "retool.internal"
-}
-
-resource "aws_route53_zone_association" "retool_postgres_private_zone_vpc_association" {
-  zone_id = aws_route53_zone.retool_postgres_private_zone.zone_id
-  vpc_id  = var.vv_rds_vpc_id
+  
+  vpc {
+    vpc_id = var.vv_rds_vpc_id
+  }
 }
 
 resource "aws_security_group" "retool_postgres_sg" {
