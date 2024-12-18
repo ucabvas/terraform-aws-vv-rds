@@ -3,6 +3,16 @@ entries:
   terraform-aws-vv-rds-helm:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-12-18T11:57:58.459963962Z"
+    description: A Helm chart for Kubernetes
+    digest: 00f3b652a2afa155078e6fa62a2ab0bce0de8f17c8ce29a3af46898c7aa38a22
+    name: terraform-aws-vv-rds-helm
+    type: application
+    urls:
+    - https://github.com/ucabvas/terraform-aws-vv-rds/releases/download/terraform-aws-vv-rds-helm-0.0.20/terraform-aws-vv-rds-helm-0.0.20.tgz
+    version: 0.0.20
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-12-18T11:12:55.577528983Z"
     description: A Helm chart for Kubernetes
     digest: 3ef309f7f41c883dddcb070e9b9e0dea2a286a58ea3b951532c9999ee661a462
@@ -41,4 +51,4 @@ entries:
     urls:
     - https://github.com/ucabvas/terraform-aws-vv-rds/releases/download/terraform-aws-vv-rds-helm-0.0.16/terraform-aws-vv-rds-helm-0.0.16.tgz
     version: 0.0.16
-generated: "2024-12-18T11:12:55.577548359Z"
+generated: "2024-12-18T11:57:58.459990081Z"
