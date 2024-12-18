@@ -1,7 +1,7 @@
 apiVersion: app.terraform.io/v1alpha2
 kind: Workspace
 metadata:
-  name: retool-postgres-workspace
+  name: retool-{{ .Values.workspace.terraformVariables.vv_rds_env_identifier }}
 spec:
   organization: {{ .Values.tfc.organization }}
   project:
@@ -15,6 +15,8 @@ spec:
   applyMethod: auto
   terraformVersion: 1.6.3
   terraformVariables:
+    - name: vv_rds_env_identifier
+      value: {{ .Values.workspace.terraformVariables.vv_rds_env_identifier }}
     - name: vv_rds_vpc_id
       value: {{ .Values.workspace.terraformVariables.vv_rds_vpc_id }}
     - name: vv_rds_subnet_id_0

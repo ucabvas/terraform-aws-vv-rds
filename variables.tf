@@ -1,7 +1,7 @@
-variable "vv_rds_db_identifier" {
+variable "vv_rds_env_identifier" {
     type        = string
-    description = "name of the rds instance"
-    default     = "0"
+    description = "environment identifier of the rds instance"
+    default     = "prod"
 }
 
 variable "vv_rds_vpc_id" {
@@ -22,7 +22,7 @@ variable "vv_rds_subnet_id_1" {
 variable "vv_rds_db_name" {
     description = "The database name"
     type        = string
-    default     = "hammerhead_production"
+    default     = "retool"
 }
 
 variable "vv_rds_username" {

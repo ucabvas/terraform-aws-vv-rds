@@ -1,5 +1,5 @@
 resource "aws_route53_zone" "retool_postgres_private_zone" {
-  name = "retool.internal"
+  name = "retool-${var.vv_rds_env_identifier}.internal"
   
   vpc {
     vpc_id = var.vv_rds_vpc_id
@@ -7,7 +7,7 @@ resource "aws_route53_zone" "retool_postgres_private_zone" {
 }
 
 resource "aws_security_group" "retool_postgres_sg" {
-  name        = "retool-postgres-sg"
+  name        = "${local.identifier}-sg"
   description = "Allow traffic only from within the subnet"
   vpc_id      = var.vv_rds_vpc_id
 
@@ -26,22 +26,22 @@ resource "aws_security_group" "retool_postgres_sg" {
   }
 
   tags = {
-    Name = "retool-postgres-sg"
+    Name = "${local.identifier}-sg"
   }
 }
 
 resource "aws_db_subnet_group" "retool_postgres_subnet_group" {
-  name       = "retool-postgres-subnet-group"
+  name       = "${local.identifier}-subnet-group"
   subnet_ids = local.subnet_ids
 
   tags = {
-    Name = "retool-postgres-subnet-group"
+    Name = "${local.identifier}-subnet-group"
   }
 }
 
 resource "aws_db_parameter_group" "postgres_parameter_group" {
   family = "postgres16"
-  name   = local.parameter_group_name
+  name   = "${local.identifier}-param-group"
 }
 
 # Create the RDS instance

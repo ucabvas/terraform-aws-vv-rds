@@ -12,6 +12,7 @@ tfc:
 
 workspace:
   terraformVariables:
+    vv_rds_env_identifier: ""
     vv_rds_vpc_id: ""
     vv_rds_subnet_id_0: ""
     vv_rds_subnet_id_1: ""
