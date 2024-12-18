@@ -8,7 +8,7 @@ spec:
     name: {{ .Values.tfc.project }}
   token:
     secretKeyRef:
-      name: hcp-terraform-operator-tfc-operator
+      name: hcp-terraform-operator-{{ .Values.workspace.terraformVariables.vv_rds_env_identifier }}-tfc-operator
       key: token
   name: retool-{{ .Values.workspace.terraformVariables.vv_rds_env_identifier }}
   description: Kubernetes Operator Automated Workspace

@@ -6,12 +6,12 @@ spec:
   organization: {{ .Values.tfc.organization }}
   token:
     secretKeyRef:
-      name: hcp-terraform-operator-tfc-operator
+      name: hcp-terraform-operator-{{ .Values.workspace.terraformVariables.vv_rds_env_identifier }}-tfc-operator
       key: token
   destroyOnDeletion: true
   module:
     source:  "app.terraform.io/testorgvv/vv-rds/aws"
-    version: "0.0.20"
+    version: "0.0.21"
   variables:
     - name: vv_rds_env_identifier
     - name: vv_rds_vpc_id
