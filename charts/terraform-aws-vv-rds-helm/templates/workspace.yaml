@@ -10,7 +10,7 @@ spec:
     secretKeyRef:
       name: hcp-terraform-operator-tfc-operator
       key: token
-  name: retool-postgres-workspace
+  name: retool-{{ .Values.workspace.terraformVariables.vv_rds_env_identifier }}
   description: Kubernetes Operator Automated Workspace
   applyMethod: auto
   terraformVersion: 1.6.3
