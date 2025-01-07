@@ -11,11 +11,14 @@ spec:
   destroyOnDeletion: true
   module:
     source:  "app.terraform.io/testorgvv/vv-rds/aws"
-    version: "0.0.22"
+    version: "0.0.23"
   variables:
     - name: vv_rds_env_identifier
     - name: vv_rds_vpc_id
     - name: vv_rds_subnet_id_0
     - name: vv_rds_subnet_id_1
+  outputs:
+    - name: rds_master_password_secret_path
+    - name: rds_hostname
   workspace:
     name: retool-{{ .Values.workspace.terraformVariables.vv_rds_env_identifier }}
