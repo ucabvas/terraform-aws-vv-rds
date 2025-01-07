@@ -11,7 +11,7 @@ spec:
   destroyOnDeletion: true
   module:
     source:  "app.terraform.io/testorgvv/vv-rds/aws"
-    version: "0.0.23"
+    version: "0.0.24"
   variables:
     - name: vv_rds_env_identifier
     - name: vv_rds_vpc_id
