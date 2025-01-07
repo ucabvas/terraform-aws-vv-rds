@@ -23,8 +23,6 @@ spec:
       value: {{ .Values.workspace.terraformVariables.vv_rds_subnet_id_0 }}
     - name: vv_rds_subnet_id_1
       value: {{ .Values.workspace.terraformVariables.vv_rds_subnet_id_1 }}
-    - name: vv_rds_password
-      value: {{ .Values.workspace.terraformVariables.vv_rds_password }} 
   environmentVariables:
     - name: AWS_DEFAULT_REGION
       sensitive: false

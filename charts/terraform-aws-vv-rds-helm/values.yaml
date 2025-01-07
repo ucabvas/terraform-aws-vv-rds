@@ -16,7 +16,6 @@ workspace:
     vv_rds_vpc_id: ""
     vv_rds_subnet_id_0: ""
     vv_rds_subnet_id_1: ""
-    vv_rds_password: ""
   environmentVariables:
     aws_default_region: ""
     tfc_aws_run_role_arn: ""

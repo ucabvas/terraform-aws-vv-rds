@@ -30,8 +30,3 @@ variable "vv_rds_username" {
     type        = string
     default     = "postgres"
 }
-
-variable "vv_rds_password" {
-    description = "The database password"
-    type        = string
-}
